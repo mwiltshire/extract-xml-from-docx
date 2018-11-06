@@ -59,7 +59,7 @@ def pretty_print_xml(document_xml, file, base_directory):
 
 
 def main():
-    base_directory = dirname(os.path.realpath(__file__))
+    base_directory = os.getcwd()
     argparser = argparse.ArgumentParser(
         description="Extract document.xml from docx files")
     argparser.add_argument("-r", dest="search_method", action="store_const",
