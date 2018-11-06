@@ -50,7 +50,7 @@ def pretty_print_xml(document_xml, file, base_directory):
     try:
         dom = xml.dom.minidom.parseString(document_xml)
         pretty_xml = dom.toprettyxml()
-        with io.open(join(base_directory, target_filename), "w") as target:
+        with io.open(join(base_directory, target_filename), "w", encoding="utf-8") as target:
             target.write(pretty_xml)
             print("Finished writing file: {}".format(target_filename))
     except Exception as e:
