@@ -9,3 +9,9 @@ Accepts two options, **-r** and **-p**
 **-r**: Walk directory tree, extracting document.xml from any .docx found (only searches in working directory by default)
 
 **-p**: Pretty print document.xml in output file
+
+# TODO:
+
+- Add option for generating log
+- Better exception handling
+- Log info (no. of files processed, time taken, etc) to console once finished
