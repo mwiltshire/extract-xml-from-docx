@@ -15,3 +15,4 @@ Accepts two options, **-r** and **-p**
 - Add option for generating log
 - Better exception handling
 - Log info (no. of files processed, time taken, etc) to console once finished
+- Skip hidden directories
