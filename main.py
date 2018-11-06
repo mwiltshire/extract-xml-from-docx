@@ -16,7 +16,7 @@ def unpack_and_read(docx):
     return zipfile.ZipFile(docx).read("word/document.xml")
 
 
-def walk_directory_tree_and_write_files(base_directory, should_pretty_print):
+def write_files_from_directory_tree(base_directory, should_pretty_print):
     for dirname, _, filelist in walk(base_directory):
         if not basename(dirname).startswith("."):
             print("Checking in directory: {}".format(dirname))
@@ -63,7 +63,7 @@ def main():
     argparser = argparse.ArgumentParser(
         description="Extract document.xml from docx files")
     argparser.add_argument("-r", dest="search_method", action="store_const",
-                           const=walk_directory_tree_and_write_files, default=write_files_from_base_directory,
+                           const=write_files_from_directory_tree, default=write_files_from_base_directory,
                            help="Walk directory structure and extract xml to top level dir (default: search only in current directory)")
     argparser.add_argument("-p", dest="pretty_print", action="store_true",
                            help="Pretty print extracted xml file", default=False)
