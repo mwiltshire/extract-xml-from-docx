@@ -9,7 +9,14 @@ from os.path import join, dirname, basename
 
 
 def get_docx_in_filelist(filelist, dirname):
-    return [file for file in filelist if fnmatch.fnmatch(file, "*.docx")]
+    try:
+        docx_in_filelist = [
+            file for file in filelist if fnmatch.fnmatch(file, "*.docx")]
+        if len(docx_in_filelist) == 0:
+            raise FileNotFoundError("No .docx file/s found")
+    except FileNotFoundError as e:
+        print(e)
+    return docx_in_filelist
 
 
 def unpack_and_read(docx):
